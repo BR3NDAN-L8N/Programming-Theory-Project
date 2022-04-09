@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SceneNavigator
+namespace com.BrendanLeighton
 {
-    private static readonly string Title_Screen = "Title_Screen";
-    private static readonly string Game = "Game";
-
-    public static void GoToTitleScreen()
+    public static class SceneNavigator
     {
-        SceneManager.LoadScene(Title_Screen, LoadSceneMode.Single);
-    }
+        private static readonly string Title_Screen = "Title_Screen";
+        private static readonly string Game = "Game";
+
+        public static void ToTitleScreen()
+        {
+            SceneManager.LoadScene(Title_Screen, LoadSceneMode.Single);
+        }
 
 
-    public static void GoToGameScene()
-    {
-        SceneManager.LoadScene(Game, LoadSceneMode.Single);
+        public static void ToGameScene()
+        {
+            SceneManager.LoadScene(Game, LoadSceneMode.Single);
+        }
     }
 }
