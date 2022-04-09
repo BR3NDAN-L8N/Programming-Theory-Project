@@ -6,16 +6,35 @@ namespace com.BrendanLeighton
 {
     public class Box : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] public Renderer thisBox;
+
+        public int color_curr = 0;
+        public Color[] color_options = {Color.blue, Color.red, Color.yellow};
+
+        private void Awake()
         {
-        
+            thisBox = gameObject.GetComponent<Renderer>();
         }
 
-        // Update is called once per frame
-        void Update()
+        public void SetColor(Color newColor)
         {
-        
+            thisBox.material.color = newColor;
+            if (newColor == color_options[0]) color_curr = 0;
+            else if (newColor == color_options[1]) color_curr = 1;
+            else color_curr = 2;
+        }
+
+        public void ChangeColor()
+        {
+            if (color_curr == 2) color_curr = 0;
+            else color_curr++;
+
+            thisBox.material.color = color_options[color_curr];
+        }
+
+        public void OnMouseDown()
+        {
+            ChangeColor();
         }
     }
 }
