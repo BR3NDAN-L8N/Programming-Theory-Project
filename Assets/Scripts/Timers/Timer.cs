@@ -28,7 +28,11 @@ namespace com.BrendanLeighton
         public void Update()
         {
             // count down
-            if (isStarted && _time > 0) _time -= UnityEngine.Time.deltaTime;
+            if (isStarted && _time > 0)
+            {
+                _time -= UnityEngine.Time.deltaTime;
+                UI_Timer.text = _time.ToString();
+            }
         }
 
         // CLASS METHODS

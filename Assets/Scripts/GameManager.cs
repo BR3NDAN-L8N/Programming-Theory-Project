@@ -61,7 +61,6 @@ namespace com.BrendanLeighton
             // when timer ends, change all blocks to white
             for (int i = 0; i < _boxes.Length; i++)
             {
-                Debug.Log("box in loop to change color: " + _boxes[i]);
                 _boxes[i].SetColor(Color.white);
             }
         }

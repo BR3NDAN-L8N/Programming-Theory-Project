@@ -18,6 +18,8 @@ namespace com.BrendanLeighton
 
         public void SetColor(Color newColor)
         {
+            Debug.Log("thisBox > SetColor: " + thisBox + "\nnewColor: " + newColor.ToString());
+            if (thisBox == null) thisBox = gameObject.GetComponent<Renderer>();
             thisBox.material.color = newColor;
             if (newColor == Color.white) color_curr = -1;               // -1 so next click turns box to Blue
             if (newColor == color_options[0]) color_curr = 0;         // Blue

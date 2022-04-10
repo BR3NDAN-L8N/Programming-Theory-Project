@@ -1393,12 +1393,12 @@ MonoBehaviour:
   timer_HUD: {fileID: 772055800}
   timer_ReadyUp: {fileID: 576552847}
   _boxes:
-  - {fileID: 1554900759}
-  - {fileID: 678289369}
-  - {fileID: 59219188}
-  - {fileID: 872243024}
-  - {fileID: 1577846126}
-  - {fileID: 516986265}
+  - {fileID: 1554900761}
+  - {fileID: 678289371}
+  - {fileID: 59219190}
+  - {fileID: 872243026}
+  - {fileID: 1577846128}
+  - {fileID: 516986267}
   _timeForPlayerToMemorize: 5
   _timeForPlayerToPickColors: 30
 --- !u!4 &952840117
