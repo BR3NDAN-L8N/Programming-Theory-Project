@@ -17,12 +17,15 @@ namespace com.BrendanLeighton
 
     public class GameManager : MonoBehaviour
     {
-        // GAME OBJECTS
-        [SerializeField] private GameObject overlay_BeginGame;
+        // UI
+        [SerializeField] private GameObject overlay_BeginEnd;
+        [SerializeField] private GameObject overlay_Begin;
+        [SerializeField] private GameObject overlay_End;
         [SerializeField] private GameObject overlay_HUD;
         [SerializeField] private GameObject overlay_ReadyUpTimer;
         [SerializeField] private TextMeshProUGUI timer_HUD;
         [SerializeField] private TextMeshProUGUI timer_ReadyUp;
+        [SerializeField] private TextMeshProUGUI text_PlayersScore;
         [SerializeField] private Box[] _boxes;
         // TIMES / TIMER
         [SerializeField] private float _timeForPlayerToReadyUp;
@@ -39,7 +42,9 @@ namespace com.BrendanLeighton
         private void Awake()
         {
             // make sure beginning overlay is active,
-            overlay_BeginGame.SetActive(true);
+            overlay_BeginEnd.SetActive(true);
+            overlay_Begin.SetActive(true);
+            overlay_End.SetActive(false);
             // and other overlays are inactive
             overlay_HUD.SetActive(false);
             overlay_ReadyUpTimer.SetActive(false);
@@ -63,7 +68,7 @@ namespace com.BrendanLeighton
         {
             _isGameLoopStarting = true;
             // remove begin-game-button
-            overlay_BeginGame.SetActive(false);
+            overlay_BeginEnd.SetActive(false);
             // activate the overlay that holds the ReadyUp timer UI
             overlay_ReadyUpTimer.SetActive(true);
             // start timer for player to ready up
@@ -126,6 +131,10 @@ namespace com.BrendanLeighton
             }
             Debug.Log("Score: " + _score);
             StopCoroutine(HandlePlayersTurn());
+            overlay_BeginEnd.SetActive(true);
+            overlay_End.SetActive(true);
+            overlay_Begin.SetActive(false);
+            text_PlayersScore.text = "You Scored: " + _score;
         }
 
         private void FreezeBoxes()
